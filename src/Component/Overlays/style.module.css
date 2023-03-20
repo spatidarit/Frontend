@@ -1,0 +1,27 @@
+.mod {
+    background-color: #00296B;
+    color: azure;
+}
+
+@media(max-width:599px) {
+    .mod {
+        width: 350px
+    }
+}
+
+@media(min-width:600px) {
+    .mod {
+        margin-left: 5%;
+        margin-right: 5%;
+        max-width: 400px;
+    }
+}
+
+.modLabel {
+    color: azure;
+}
+
+.modBody {
+    margin-left: 10%;
+    margin-right: 10%;
+}

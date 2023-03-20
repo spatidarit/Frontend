@@ -1,0 +1,22 @@
+.mainNav {
+    border-bottom: 5px solid #00296B;
+    max-height: 60px;
+    background-color: white;
+}
+
+.profile {
+    margin-right: 50px
+}
+
+@media(min-width:1200px) {
+    .profile {
+        margin-right: 0px
+    }
+}
+
+@media(min-width:631px) {
+    .logo {
+        /* pointer-events:none; */
+    }
+
+}

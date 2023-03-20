@@ -1,0 +1,16 @@
+@media (min-width:630px) {
+
+    .content {
+        margin-left: 300px;
+    }
+
+}
+
+.content {
+    margin-top: 5%;
+
+}
+
+.graph {
+    padding-bottom: 100px;
+}

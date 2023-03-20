@@ -1,0 +1,15 @@
+.btnRow {
+
+    margin-top: 70px;
+}
+
+@media (min-width:630px) {
+    .btnRow {
+        margin-left: 300px;
+    }
+
+}
+
+.empBtn {
+    margin-right: 5px
+}

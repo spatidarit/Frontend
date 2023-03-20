@@ -1,0 +1,13 @@
+@media (min-width:630px) {
+
+    .content {
+        margin-left: 300px;
+        max-width: 70%;
+    }
+
+}
+
+.content {
+    margin-top: 5%;
+
+}
