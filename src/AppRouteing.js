@@ -34,6 +34,7 @@ const AppRouteing = (props) => {
     <BrowserRouter>
       <Routes>
         {isLogin ? (
+          <>
           <Route
             path="/dashboard"
             element={<DashBoard isLogin={isLogin} setLogin={setIsLogin} />}
@@ -53,16 +54,17 @@ const AppRouteing = (props) => {
             <Route path="domain_list" element={<DomianList />} />
             <Route path="project_list" element={<ProjectList />} />
           </Route>
+          <Route
+          path="/*"
+          element={<DashBoard isLogin={isLogin} setLogin={setIsLogin} />}
+        />
+        </>
         ) : (
           <Route
-            path="/"
+            path="/*"
             element={<SignIn isLogin={isLogin} setLogin={setIsLogin} />}
           />
         )}
-        <Route
-          path="/*"
-          element={<SignIn isLogin={isLogin} setLogin={setIsLogin} />}
-        />
       </Routes>
     </BrowserRouter>
   );

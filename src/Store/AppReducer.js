@@ -117,7 +117,6 @@ export const domainDataSlice = createSlice({
   },
   reducers: {
     setDomainList(state, action) {
-      console.log(action.payload.domains);
       state.domainList = action.payload.domains;
     },
     setProjectId(state, action) {

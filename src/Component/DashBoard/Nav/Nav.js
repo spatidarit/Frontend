@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import styles from "./nav.module.css";
-import { useNavigate } from "react-router-dom";
 
 const Nav = (props) => {
   const [sideBar, setSidebar] = useState(false);
-  const navigate = useNavigate;
-
   const logout = () => {
     localStorage.removeItem("id");
     localStorage.removeItem("auth_ac");
