@@ -3,9 +3,8 @@ import React from "react";
 const SelectListSearch = ({ dataList, setOption, label }) => {
   return (
     <div className="col-2">
-        <label>{label}</label>
+        <label>{label}:-</label>
       <select
-        className="ms-1"
         onChange={(e) => {
           setOption(e.target.value);
         }}

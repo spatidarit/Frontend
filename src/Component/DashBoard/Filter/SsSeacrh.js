@@ -12,7 +12,7 @@ const SsSearch = ({ setSsData, setSsLimit }) => {
   }, [ss]);
   return (
     <>
-      <div className="col-2">
+      <div className="col-2 ms-1">
         <input
           onChange={(e) => {
             setSs(e.target.value);
@@ -23,7 +23,6 @@ const SsSearch = ({ setSsData, setSsLimit }) => {
           style={{ width: "50px" }}
         />
         <select
-          className="ms-2"
           onChange={(e) => {
             setSsLimit(e.target.value);
           }}
