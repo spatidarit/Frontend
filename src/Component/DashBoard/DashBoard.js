@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import jwtDecode from "jwt-decode";
 import AdminDashboard from "./Admin/AdminDashboard";
 import ManagerDashboard from "./Manager/ManagerDashboard";
 import EmployeeDashboard from "./Employee/EmployeeDashboard";
 import Nav from "./Nav/Nav";
 import Sidebar from "./SideBar/Sidebar";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchDomainList } from "../../Store/Actions/DomainAction";
+import { fetchProjectList } from "../../Store/Actions/ProjectAction";
 
 const DashBoard = (props) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchProjectList());
+  }, []);
   const state = useSelector((state) => state.authReducer);
   const nav = <Nav setLogin={props.setLogin} />;
   if (props.isLogin) {

@@ -2,9 +2,14 @@ import React, { useEffect, useState } from "react";
 import styles from "./Sidebar.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import DashboardApi from "../../../API/DashboardApi";
-import { connect, useDispatch } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { fetchEmpoloyees } from "../../../Store/Actions/DashboardActions";
-import { employeeAction, savedArticleAction } from "../../../Store/AppReducer";
+import {
+  domainDataAction,
+  employeeAction,
+  savedArticleAction,
+} from "../../../Store/AppReducer";
+import { fetchDomainList } from "../../../Store/Actions/DomainAction";
 
 const Sidebar = (props) => {
   const dashboardApi = new DashboardApi();
@@ -19,6 +24,7 @@ const Sidebar = (props) => {
     navigate("/dashboard");
     setActive("home");
   };
+  const reducer = useSelector((state) => state.domainReducer);
   const goToEmployeeList = () => {
     navigate("/dashboard/employee_list");
     if (isAdmin) dispatch(employeeAction.saveManagerId(0));

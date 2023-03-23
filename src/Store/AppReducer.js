@@ -112,14 +112,21 @@ export const domainDataSlice = createSlice({
     projectList: [],
     ProjectId: "",
     domainList: [],
+    serachDomainList:[],
+    
   },
   reducers: {
     setDomainList(state, action) {
+      console.log(action.payload.domains);
       state.domainList = action.payload.domains;
     },
     setProjectId(state, action) {
       state.ProjectId = action.payload;
     },
+    setSerachDomainList(state, action) {
+      state.serachDomainList = action.payload;
+    },
+    
   },
 });
 

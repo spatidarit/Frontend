@@ -1,31 +1,26 @@
 import classes from "./DomainDataList.module.css";
 import { useEffect, useState } from "react";
 import ListItem from "./ListItem";
-import DomianListButton from "../../ModelButton/DomainListButton";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDomainList } from "../../../../Store/Actions/DomainAction";
 import ModalButton from "../../../Button/ModalBotton";
 import { domainDataAction } from "../../../../Store/AppReducer";
+import Filter from "../../Filter/Filter";
 
 function DomainDataList({ isAdmin }) {
   const dispatch = useDispatch();
-  const { reducer, domainList } = useSelector((state) => {
-    return {
-      reducer: state.domainReducer,
-      domainList: state.domainReducer.domainList,
-    };
-  });
-  const { projects } = useSelector((state) => ({
-    projects: state.projectReducer.projectList,
-  }));
+  const reducer = useSelector((state) => state.domainReducer);
+  const [projects, setProject] = useState(
+    useSelector((state) => state.projectReducer.projectList)
+  );
   const [disableEditButton, setDisableEditButton] = useState(false);
   const fetchDomains = (id) => {
     dispatch(fetchDomainList(id));
   };
-  useEffect(() => {
-    fetchDomains(reducer.ProjectId);
-  }, []);
 
+  useEffect(() => {
+    dispatch(domainDataAction.setSerachDomainList(reducer.domainList));
+  }, []);
   const disableEditButtonHandler = () => {
     setDisableEditButton(true);
   };
@@ -43,6 +38,8 @@ function DomainDataList({ isAdmin }) {
       </h3>
       <div className="card-body">
         {isAdmin && <ModalButton id="domainModal" title="Upload Domains" />}
+        <Filter />
+
         <div className="d-flex justify-content-end">
           <div className="d-inline-flex p-2 mb-2 bd-highlight">
             <select
@@ -81,8 +78,8 @@ function DomainDataList({ isAdmin }) {
               </tr>
             </thead>
             <tbody>
-              {domainList &&
-                domainList.map((item, index) => {
+              {reducer.serachDomainList &&
+                reducer.serachDomainList.map((item, index) => {
                   return (
                     <ListItem
                       key={index}

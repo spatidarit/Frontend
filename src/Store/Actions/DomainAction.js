@@ -12,6 +12,8 @@ export const fetchDomainList = (projectId) => {
   };
 };
 
+
+
 export const updateDomainLinkData = (linkData, domainData) => {
   return async (dispatch, getState) => {
     const projectId = getState().domainReducer.ProjectId;

@@ -7,15 +7,11 @@ import decor from "./style.module.css";
 import { fetchManagers } from "../../../Store/Actions/DashboardActions";
 import AddManager from "../../Overlays/AddManager";
 import { fetchProjectList } from "../../../Store/Actions/ProjectAction";
+import { fetchDomainList } from "../../../Store/Actions/DomainAction";
 
 const DashBoard = () => {
   const reduxData = useSelector((state) => state);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-  
-    dispatch(fetchProjectList());
-  }, []);
 
   return (
     <React.Fragment>

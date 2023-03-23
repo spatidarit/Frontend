@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
 import ProjectApi from "../../API/ProjectApi";
 import { projectAction, domainDataAction } from "../AppReducer";
+import { fetchDomainList } from "./DomainAction";
 
 const projectApi = new ProjectApi();
 
@@ -10,6 +11,7 @@ export const fetchProjectList = () => {
       dispatch(
         domainDataAction.setProjectId(response.data.data.projects[0]._id)
       );
+      dispatch(fetchDomainList(response.data.data.projects[0]._id));
       return dispatch(projectAction.setProjectList(response.data.data));
     });
   };
